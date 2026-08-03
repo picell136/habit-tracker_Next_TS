@@ -76,7 +76,7 @@ export function HabitProvider({ children }: { children: ReactNode }) {
     }
     
     let streak = 1;
-    let currentDate = new Date(today);
+    const currentDate = new Date(today);
     
     while (completions[today] === true) {
       currentDate.setDate(currentDate.getDate() - 1);
