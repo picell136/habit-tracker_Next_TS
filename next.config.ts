@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     unoptimized: true, 
   },
   basePath: '/habit-tracker_Next_TS',
-  assetPrefix: '/habit-tracker_Next_TS/',
 };
 
 export default nextConfig;
