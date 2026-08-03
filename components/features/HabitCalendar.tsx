@@ -10,6 +10,8 @@ import {
   format,
   isSameMonth,
   isToday,
+  isAfter,
+  startOfDay
 } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { useState } from 'react';
@@ -99,6 +101,9 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
           const completed = isDayCompleted(day);
           const today = isToday(day);
 
+          const today2 = startOfDay(new Date());
+          const isFutureDay = isAfter(day,today2);
+
           return (
             <button
               key={index}
@@ -106,9 +111,11 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
               className={`
                 aspect-square rounded-lg text-sm font-medium transition-all
                 flex items-center justify-center
+                ${isFutureDay ? 'hover:bg-red-100 cursor-not-allowed' : ''}
                 ${!isCurrentMonth ? 'text-gray-300 hover:text-gray-600' : ''}
-                ${completed ? 'bg-orange-500 text-white hover:bg-orange-600' : ''}
-                ${!completed && isCurrentMonth ? 'hover:bg-orange-50 text-gray-700' : ''}
+                ${completed && !isFutureDay ? 'bg-orange-500 text-white hover:bg-orange-600' : ''}
+                ${!completed && isCurrentMonth && !isFutureDay ? 'hover:bg-orange-50 text-gray-700' : ''}
+                ${!completed && isCurrentMonth && isFutureDay ? 'hover:bg-orange-50 text-gray-700' : ''}
                 ${!completed && !isCurrentMonth ? 'hover:bg-gray-50' : ''}
                 ${today && !completed ? 'ring-2 ring-orange-300 ring-offset-1' : ''}
                 ${today && completed ? 'ring-2 ring-white ring-offset-2 ring-offset-orange-500' : ''}
