@@ -9,7 +9,6 @@ import {
   eachDayOfInterval,
   format,
   isSameMonth,
-  isSameDay,
   isToday,
 } from 'date-fns';
 import { ru } from 'date-fns/locale';
