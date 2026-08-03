@@ -53,7 +53,6 @@ export function HabitCalendar({ habit, onToggleDay }: HabitCalendarProps) {
   const handleDayClick = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd');
     onToggleDay(habit.id, dateStr);
-    // Убираем переключение месяца
   };
 
   return (
