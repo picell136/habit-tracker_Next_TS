@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, 
   },
-  basePath: '/habit-tracker_Next_TS',
+  basePath: '/habit-tracker_Next_TS/',
   assetPrefix: '/habit-tracker_Next_TS/',
 };
 
