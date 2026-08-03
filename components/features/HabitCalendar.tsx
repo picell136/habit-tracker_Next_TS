@@ -17,11 +17,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface HabitCalendarProps {
   habit: Habit;
+  today: string;
   onToggleDay: (habitId: string, date: string) => void;
 }
 
-export function HabitCalendar({ habit, onToggleDay }: HabitCalendarProps) {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
+export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps) {
+  const [currentMonth, setCurrentMonth] = useState(new Date(today)
+);
 
   // Получаем все дни месяца
   const monthStart = startOfMonth(currentMonth);

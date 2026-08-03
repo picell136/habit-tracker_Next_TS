@@ -1,48 +1,14 @@
-'use client';
+import HomeClient from './homeClient';
 
-import { useHabits } from '@/context/HabitContext';
-import { HabitCard } from '@/components/features/HabitCard';
-import { AddHabitForm } from '@/components/features/AddHabitForm';
-import { CheckCircle } from 'lucide-react';
 
 export default function Home() {
-  const { habits, getTodayCompletions, getTotalHabits } = useHabits();
-  const today = new Date().toISOString().split('T')[0];
 
-  // Сортируем: невыполненные сверху
-  const sortedHabits = [...habits].sort((a, b) => {
-    const aDone = a.completions[today] || false;
-    const bDone = b.completions[today] || false;
-    if (aDone === bDone) return 0;
-    if (aDone) return 1;  
-    return -1;            
-  });
+  const today = new Date()
+    .toISOString()
+    .split('T')[0];
+
 
   return (
-    <main className="max-w-2xl mx-auto p-4 space-y-6">
-      <header className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Привычки</h1>
-        <div className="flex gap-4 text-sm">
-          <span className="flex items-center gap-1">
-            <CheckCircle size={25} className="text-green-400" />
-            {getTodayCompletions()}/{getTotalHabits()}
-          </span>
-        </div>
-      </header>
-
-      <AddHabitForm />
-
-      {habits.length === 0 ? (
-        <div className="text-center py-12 text-gray-400">
-          <p>Нет привычек. Добавьте первую!</p>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {sortedHabits.map((habit) => (
-            <HabitCard key={habit.id} habit={habit} />
-          ))}
-        </div>
-      )}
-    </main>
+    <HomeClient today={today}/>
   );
 }

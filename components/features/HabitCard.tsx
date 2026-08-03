@@ -8,12 +8,13 @@ import { HabitCalendar } from './HabitCalendar';
 
 interface HabitCardProps {
   habit: Habit;
+  today: string;
 }
 
-export function HabitCard({ habit }: HabitCardProps) {
+export function HabitCard({ habit, today }: HabitCardProps) {
   const { toggleHabit, deleteHabit } = useHabits();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const today = new Date().toISOString().split('T')[0];
+  
   const isCompleted = habit.completions[today] || false;
 
   return (
@@ -72,7 +73,8 @@ export function HabitCard({ habit }: HabitCardProps) {
       {isCalendarOpen && (
         <div className="px-4 pb-4">
           <HabitCalendar 
-            habit={habit} 
+            habit={habit}
+            today={today}
             onToggleDay={toggleHabit}
           />
         </div>
