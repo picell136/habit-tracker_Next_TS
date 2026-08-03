@@ -46,10 +46,6 @@ export function HabitCalendar({ habit, onToggleDay }: HabitCalendarProps) {
     setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1));
   };
 
-  const goToToday = () => {
-    setCurrentMonth(new Date());
-  };
-
   const isDayCompleted = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd');
     return habit.completions[dateStr] || false;
@@ -58,6 +54,7 @@ export function HabitCalendar({ habit, onToggleDay }: HabitCalendarProps) {
   const handleDayClick = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd');
     onToggleDay(habit.id, dateStr);
+    // Убираем переключение месяца
   };
 
   return (
@@ -109,13 +106,13 @@ export function HabitCalendar({ habit, onToggleDay }: HabitCalendarProps) {
               className={`
                 aspect-square rounded-lg text-sm font-medium transition-all
                 flex items-center justify-center
-                ${!isCurrentMonth ? 'text-gray-300 cursor-default' : ''}
+                ${!isCurrentMonth ? 'text-gray-300 hover:text-gray-600' : ''}
                 ${completed ? 'bg-orange-500 text-white hover:bg-orange-600' : ''}
                 ${!completed && isCurrentMonth ? 'hover:bg-orange-50 text-gray-700' : ''}
+                ${!completed && !isCurrentMonth ? 'hover:bg-gray-50' : ''}
                 ${today && !completed ? 'ring-2 ring-orange-300 ring-offset-1' : ''}
                 ${today && completed ? 'ring-2 ring-white ring-offset-2 ring-offset-orange-500' : ''}
               `}
-              disabled={!isCurrentMonth}
             >
               {format(day, 'd')}
             </button>

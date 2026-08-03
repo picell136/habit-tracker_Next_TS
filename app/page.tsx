@@ -13,16 +13,18 @@ export default function Home() {
   const sortedHabits = [...habits].sort((a, b) => {
     const aDone = a.completions[today] || false;
     const bDone = b.completions[today] || false;
-    return aDone === bDone ? 0 : aDone ? 1 : -1;
+    if (aDone === bDone) return 0;
+    if (aDone) return 1;  
+    return -1;            
   });
 
   return (
     <main className="max-w-2xl mx-auto p-4 space-y-6">
       <header className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Привычки</h1>
+        <h1 className="text-3xl font-bold">Привычки</h1>
         <div className="flex gap-4 text-sm">
           <span className="flex items-center gap-1">
-            <CheckCircle size={16} className="text-green-500" />
+            <CheckCircle size={25} className="text-green-400" />
             {getTodayCompletions()}/{getTotalHabits()}
           </span>
         </div>

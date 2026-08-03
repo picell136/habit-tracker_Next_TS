@@ -25,4 +25,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right,
+    rgba(165, 17, 66) 0%,    
+    rgba(172, 97, 23) 20%,   
+    rgba(172, 97, 23) 80%,   
+    rgba(165, 17, 66) 100%   
+  )
 }
+
