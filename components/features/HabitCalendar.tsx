@@ -54,9 +54,19 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
     return habit.completions[dateStr] || false;
   };
 
+  const addZero = (num: number) => ('0' + num).slice(-2);
+
   const handleDayClick = (date: Date) => {
     const dateStr = format(date, 'yyyy-MM-dd');
-    onToggleDay(habit.id, dateStr);
+
+    const today3 = new Date();
+    const year = today3.getFullYear();
+    const month = today3.getMonth();
+    const day = today3.getDate();
+
+    if (`${year}-${addZero(month + 1)}-${addZero(day)}` >= dateStr){  // если дата позже сегодняшней, то тогл не сработает
+      onToggleDay(habit.id, dateStr);
+    }
   };
 
   return (
