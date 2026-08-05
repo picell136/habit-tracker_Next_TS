@@ -54,7 +54,7 @@ export function AddHabitForm() {
       
       <button
         type="submit"
-        className="w-full text-5xl bg-green-500 text-black p-2 rounded hover:bg-blue-600 cursor-pointer"
+        className="w-full text-5xl bg-green-500 text-black p-2 rounded hover:cursor-pointer"
       >
         Добавить привычку
       </button>
