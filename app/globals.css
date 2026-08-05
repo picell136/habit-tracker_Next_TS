@@ -40,12 +40,7 @@
     background: var(--background);
     color: var(--foreground);
     font-family: Bro, Helvetica, sans-serif;
-    background: linear-gradient(to right,
-      rgba(165, 17, 66) 0%,    
-      rgba(172, 97, 23) 20%,   
-      rgba(172, 97, 23) 80%,   
-      rgba(165, 17, 66) 100%   
-    );
+    background: url('../public/background.svg') center / cover no-repeat fixed;
   }
 }
 
@@ -54,7 +49,6 @@ body {
     font-family: 'BRO';
     font-size: 1.5rem;
 }
-
 
 .sketch {
   position: relative;

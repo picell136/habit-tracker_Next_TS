@@ -25,14 +25,14 @@ export default function HomeClient({ today }: HomeClientProps) {
   });
 
   return (
-    <main className="max-w-2xl mx-auto p-4 space-y-6">
+    <main className="max-w-2xl mx-auto p-4 space-y-1">
       <header className="flex justify-between items-center">
-        <h1 className="text-8xl text-gray-450">
+        <h1 className="text-8xl text-black">
           Привычки
         </h1>
 
-        <div className="flex gap-4 text-sm">
-          <span className="flex text-2xl items-center gap-1 text-gray-200">
+        <div className="flex gap-4 text-m">
+          <span className="flex text-3xl items-center gap-1 text-black">
             <CheckCircle 
               size={25} 
               className="text-green-400" 
