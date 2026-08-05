@@ -46,7 +46,7 @@ export default function HomeClient({ today }: HomeClientProps) {
 
       {habits.length === 0 ? (
 
-        <div className="text-center py-12 text-gray-300">
+        <div className="text-3xl text-center py-12 text-orange-600">
           <p>
             Нет привычек. Добавьте первую!
           </p>
