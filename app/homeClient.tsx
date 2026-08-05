@@ -5,7 +5,6 @@ import { HabitCard } from '@/components/features/HabitCard';
 import { AddHabitForm } from '@/components/features/AddHabitForm';
 import { CheckCircle } from 'lucide-react';
 
-
 interface HomeClientProps {
   today: string;
 }
@@ -28,12 +27,12 @@ export default function HomeClient({ today }: HomeClientProps) {
   return (
     <main className="max-w-2xl mx-auto p-4 space-y-6">
       <header className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-gray-450">
+        <h1 className="text-8xl text-gray-450">
           Привычки
         </h1>
 
         <div className="flex gap-4 text-sm">
-          <span className="flex items-center gap-1 text-gray-200">
+          <span className="flex text-2xl items-center gap-1 text-gray-200">
             <CheckCircle 
               size={25} 
               className="text-green-400" 

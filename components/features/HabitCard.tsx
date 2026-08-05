@@ -31,22 +31,22 @@ export function HabitCard({ habit, today }: HabitCardProps) {
           
           <div className="flex-1">
             <h3 className={`
-              text-base font-bold
+              text-2xl font-bold
               ${isCompleted ? 'text-orange-400 line-through' : 'text-orange-600'}
             `}>
               {habit.name}
             </h3>
 
             {habit.description && (
-              <p className="text-sm text-gray-800">{habit.description}</p>
+              <p className="text-m text-gray-800">{habit.description}</p>
             )}
             
             <div className="flex gap-2 mt-1 text-xs">
-              <span className="text-gray-800 font-medium">
+              <span className="text-2xl text-gray-800 font-medium">
                 🔥 {habit.streak} дней
               </span>
               <span className="text-gray-400">•</span>
-              <span className="text-gray-700 capitalize">{habit.frequency}</span>
+              <span className="text-2xl text-gray-700 capitalize">{habit.frequency}</span>
             </div>
           </div>
         </div>

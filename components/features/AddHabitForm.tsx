@@ -25,13 +25,13 @@ export function AddHabitForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-4 border rounded-lg">
+    <form onSubmit={handleSubmit} className="sketch  space-y-4 p-6 bg-white/70">
       <input
         type="text"
         placeholder="Название привычки"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full p-2 border rounded placeholder:text-gray-400 text-gray-900"
+        className="w-full text-4xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
         required
       />
       
@@ -40,13 +40,13 @@ export function AddHabitForm() {
         placeholder="Описание (опционально)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="w-full p-2 border rounded placeholder:text-gray-400 text-gray-900"
+        className="w-full text-4xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
       />
       
       <select
         value={frequency}
         onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
-        className="w-full p-2 border rounded text-gray-900"
+        className="w-full text-4xl p-2 border rounded text-gray-900"
       >
         <option value="daily">Ежедневно</option>
         <option value="weekly">Еженедельно</option>
@@ -54,7 +54,7 @@ export function AddHabitForm() {
       
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 cursor-pointer"
+        className="w-full text-5xl bg-green-500 text-black p-2 rounded hover:bg-blue-600 cursor-pointer"
       >
         Добавить привычку
       </button>

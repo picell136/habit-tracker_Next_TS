@@ -80,7 +80,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
           >
             <ChevronLeft size={20} className="text-orange-500" />
           </button>
-          <h3 className="font-semibold text-orange-600">
+          <h3 className="font-semibold text-4xl text-orange-600">
             {format(currentMonth, 'MMMM yyyy', { locale: ru })}
           </h3>
           <button
@@ -97,7 +97,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
         {weekDays.map((day) => (
           <div
             key={day}
-            className="text-center text-xs font-medium text-gray-400 py-1"
+            className="text-center text-4x1 font-medium text-gray-400 py-1"
           >
             {day}
           </div>
@@ -119,7 +119,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
               key={index}
               onClick={() => handleDayClick(day)}
               className={`
-                aspect-square rounded-lg text-sm font-medium transition-all
+                aspect-square rounded-lg text-3x1 font-medium transition-all
                 flex items-center justify-center
                 ${isFutureDay ? 'hover:bg-red-100 cursor-not-allowed' : ''}
                 ${!isCurrentMonth ? 'text-gray-300 hover:text-gray-600' : ''}
@@ -138,7 +138,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
       </div>
 
       {/* Статистика */}
-      <div className="mt-4 pt-3 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+      <div className="mt-4 pt-3 border-t border-gray-100 flex justify-between text-2xl text-gray-500">
         <span>
           Выполнено: <strong className="text-orange-600">
             {Object.values(habit.completions).filter(value => value === true).length}
