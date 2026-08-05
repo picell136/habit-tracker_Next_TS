@@ -13,7 +13,6 @@ import {
   isAfter,
   startOfDay
 } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -24,8 +23,13 @@ interface HabitCalendarProps {
 }
 
 export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps) {
-  const [currentMonth, setCurrentMonth] = useState(new Date(today)
-);
+  const [currentMonth, setCurrentMonth] = useState(new Date(today));
+
+  // Массив названий месяцев
+  const monthOfYear = [
+    'январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+    'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'
+  ];
 
   // Получаем все дни месяца
   const monthStart = startOfMonth(currentMonth);
@@ -69,6 +73,10 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
     }
   };
 
+  // Формируем заголовок: название месяца из массива + год
+  const monthName = monthOfYear[currentMonth.getMonth()];
+  const year = currentMonth.getFullYear();
+
   return (
     <div className="bg-white rounded-lg shadow-sm p-4">
       {/* Заголовок с навигацией */}
@@ -81,7 +89,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
             <ChevronLeft size={20} className="text-orange-500" />
           </button>
           <h3 className="font-semibold text-4xl text-orange-600">
-            {format(currentMonth, 'MMMM yyyy', { locale: ru })}
+            {`${monthName} ${year}`}
           </h3>
           <button
             onClick={goToNextMonth}
@@ -97,7 +105,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
         {weekDays.map((day) => (
           <div
             key={day}
-            className="text-center text-4x1 font-medium text-gray-400 py-1"
+            className="text-center text-4xl font-medium text-gray-400 py-1"
           >
             {day}
           </div>
@@ -109,17 +117,17 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
         {days.map((day, index) => {
           const isCurrentMonth = isSameMonth(day, currentMonth);
           const completed = isDayCompleted(day);
-          const today = isToday(day);
+          const isTodayDate = isToday(day);
 
           const today2 = startOfDay(new Date());
-          const isFutureDay = isAfter(day,today2);
+          const isFutureDay = isAfter(day, today2);
 
           return (
             <button
               key={index}
               onClick={() => handleDayClick(day)}
               className={`
-                aspect-square rounded-lg text-3x1 font-medium transition-all
+                aspect-square rounded-lg text-3xl font-medium transition-all
                 flex items-center justify-center
                 ${isFutureDay ? 'hover:bg-red-100 cursor-not-allowed' : ''}
                 ${!isCurrentMonth ? 'text-gray-300 hover:text-gray-600' : ''}
@@ -127,8 +135,8 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
                 ${!completed && isCurrentMonth && !isFutureDay ? 'hover:bg-orange-50 text-gray-700' : ''}
                 ${!completed && isCurrentMonth && isFutureDay ? 'hover:bg-orange-50 text-gray-700' : ''}
                 ${!completed && !isCurrentMonth ? 'hover:bg-gray-50' : ''}
-                ${today && !completed ? 'ring-2 ring-orange-300 ring-offset-1' : ''}
-                ${today && completed ? 'ring-2 ring-white ring-offset-2 ring-offset-orange-500' : ''}
+                ${isTodayDate && !completed ? 'ring-2 ring-orange-300 ring-offset-1' : ''}
+                ${isTodayDate && completed ? 'ring-2 ring-white ring-offset-2 ring-offset-orange-500' : ''}
               `}
             >
               {format(day, 'd')}
