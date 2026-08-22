@@ -88,7 +88,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
           >
             <ChevronLeft size={20} className="text-orange-500" />
           </button>
-          <h3 className="font-semibold text-4xl text-orange-600">
+          <h3 className="font-semibold text-sm sm:text-2xl md:text-4xl text-orange-600 whitespace-nowrap">
             {`${monthName} ${year}`}
           </h3>
           <button
@@ -105,7 +105,7 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
         {weekDays.map((day) => (
           <div
             key={day}
-            className="text-center text-4xl font-medium text-gray-400 py-1"
+            className="text-center text-xs sm:text-xl md:text-4xl font-medium text-gray-400 py-1"
           >
             {day}
           </div>

@@ -31,7 +31,7 @@ export function AddHabitForm() {
         placeholder="Название привычки"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full text-3xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
+        className="w-full min-w-0 text-sm sm:text-xl md:text-3xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
         required
       />
       
@@ -40,7 +40,7 @@ export function AddHabitForm() {
         placeholder="Описание (опционально)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="w-full text-3xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
+        className="w-full min-w-0 text-sm sm:text-xl md:text-3xl p-2 border rounded placeholder:text-gray-400 text-gray-900"
       />
       
       <select
