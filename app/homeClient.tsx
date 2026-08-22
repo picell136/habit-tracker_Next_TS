@@ -37,7 +37,9 @@ export default function HomeClient({ today }: HomeClientProps) {
               size={25} 
               className="text-green-400" 
             />
-            {getTodayCompletions()}/{getTotalHabits()}
+            <span className='completions'>
+              {getTodayCompletions()}/{getTotalHabits()}
+            </span>
           </span>
         </div>
       </header>
