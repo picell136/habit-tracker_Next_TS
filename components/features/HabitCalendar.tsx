@@ -146,13 +146,13 @@ export function HabitCalendar({ habit, today, onToggleDay }: HabitCalendarProps)
       </div>
 
       {/* Статистика */}
-      <div className="mt-4 pt-3 border-t border-gray-100 flex justify-between text-2xl text-gray-500">
-        <span>
+      <div className="mt-4 pt-3 border-t border-gray-100 flex flex-wrap justify-between gap-x-2 gap-y-1 text-xs sm:text-lg md:text-2xl text-gray-500">
+        <span className="min-w-0">
           Выполнено: <strong className="text-orange-600">
             {Object.values(habit.completions).filter(value => value === true).length}
           </strong> дней
         </span>
-        <span>
+        <span className="min-w-0">
           Текущий стрик: <strong className="text-orange-600">{habit.streak}</strong> дней
         </span>
       </div>
