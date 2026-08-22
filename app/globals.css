@@ -29,12 +29,6 @@
   font-display: swap;
 }
 
-/* @font-face {
-  font-family: 'BRO Dotted';
-  src: url('../fonts/BRO-Dotted.otf') format('opentype');
-  font-display: swap;
-} */
-
 @font-face {
   font-family: 'Comfortaa';
   src: url('../fonts/Comfortaa-Regular.ttf') format('truetype');
