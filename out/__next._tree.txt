@@ -1,3 +1,3 @@
-:HL["/habit-tracker_Next_TS/_next/static/chunks/0l74tmsk80v_w.css","style"]
+:HL["/habit-tracker_Next_TS/_next/static/chunks/35ofa2qcz64ek.css","style"]
 :HC["/",""]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"mWUbkIM4f_8zaEEz6K8YJ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"EllJ9h4bpnRgkxr2E4-Xy"}

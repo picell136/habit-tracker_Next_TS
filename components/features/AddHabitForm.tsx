@@ -46,7 +46,7 @@ export function AddHabitForm() {
       <select
         value={frequency}
         onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
-        className="w-full text-3xl p-2 border rounded text-gray-900"
+        className="w-full min-w-0 text-sm sm:text-xl md:text-3xl p-2 border rounded text-gray-900"
       >
         <option value="daily">Ежедневно</option>
         <option value="weekly">Еженедельно</option>
