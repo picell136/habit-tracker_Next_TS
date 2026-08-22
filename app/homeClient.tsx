@@ -26,18 +26,18 @@ export default function HomeClient({ today }: HomeClientProps) {
 
   return (
     <main className="max-w-2xl mx-auto p-4 space-y-1">
-      <header className="flex justify-between items-center">
-        <h1 className="text-8xl text-black">
+      <header className="flex justify-between items-center gap-2 min-w-0">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl text-black min-w-0 truncate">
           Привычки
         </h1>
 
-        <div className="flex gap-4 text-m">
-          <span className="flex text-3xl items-center gap-1 text-black">
+        <div className="flex shrink-0 text-m">
+          <span className="flex items-center gap-1 text-black">
             <CheckCircle 
               size={25} 
-              className="text-green-400" 
+              className="text-green-400 shrink-0" 
             />
-            <span className='completions'>
+            <span className="completions">
               {getTodayCompletions()}/{getTotalHabits()}
             </span>
           </span>
