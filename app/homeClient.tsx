@@ -27,7 +27,7 @@ export default function HomeClient({ today }: HomeClientProps) {
   return (
     <main className="max-w-2xl mx-auto p-4 space-y-1">
       <header className="flex justify-between items-center gap-2 min-w-0">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl text-black min-w-0 truncate">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl text-black min-w-0 truncate">
           Привычки
         </h1>
 
