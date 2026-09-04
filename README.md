@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Habit Tracker
 
-## Getting Started
+Веб-приложение для отслеживания привычек. Можно добавлять привычки, отмечать выполнение по дням, смотреть календарь и текущий стрик.
 
-First, run the development server:
+Данные хранятся в браузере (`localStorage`), сервер и аккаунт не нужны.
+
+## Возможности
+
+- добавление привычки (название, необязательное описание, ежедневно / еженедельно);
+- отметка выполнения за сегодня;
+- календарь по месяцам: можно отметить или снять прошлые дни (будущие недоступны);
+- счётчик выполненных привычек за день;
+- стрик: сколько дней подряд привычка отмечена;
+- адаптивная вёрстка для узких экранов.
+
+Стек: **Next.js** (App Router), **React**, **TypeScript**, **Tailwind CSS**.
+
+## Требования
+
+- [Node.js](https://nodejs.org/) 20 или новее
+- npm (идёт вместе с Node.js)
+
+## Установка
+
+```bash
+npm install
+```
+
+Если клонируете весь репозиторий, команды нужно выполнять из этой папки (`my-app`).
+
+## Запуск
+
+Режим разработки:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте в браузере:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[http://localhost:3000/habit-tracker_Next_TS](http://localhost:3000/habit-tracker_Next_TS)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+В конфиге задан `basePath: '/habit-tracker_Next_TS'`, поэтому корень `http://localhost:3000/` будет пустым — нужна именно эта страница.
 
-## Learn More
+## Сборка
 
-To learn more about Next.js, take a look at the following resources:
+Статический экспорт в папку `out/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Локально посмотреть продакшен-сборку через `npm start` нельзя: проект собирается как статический сайт (`output: 'export'`). Для предпросмотра `out/` подойдёт любой статический сервер.
 
-## Deploy on Vercel
+## Публикация на GitHub Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run deploy
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Скрипт собирает проект и публикует содержимое `out/` в ветку `gh-pages`. Сайт будет доступен по адресу вида:
+
+`https://<ваш-аккаунт>.github.io/habit-tracker_Next_TS/`
+
+Если репозиторий называется иначе, поменяйте `basePath` в `next.config.ts` на имя репозитория.
+
+## Структура
+
+```
+my-app/
+├── app/                 # страницы и глобальные стили
+├── components/features  # форма, карточка привычки, календарь
+├── context/             # состояние привычек
+├── fonts/               # локальные шрифты
+└── public/              # статика
+```
